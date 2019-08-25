@@ -1,11 +1,4 @@
-/*
- * This file is part of the OpenMV project.
- * Copyright (c) 2013/2014 Ibrahim Abdelkader <i.abdalkader@gmail.com>
- * This work is licensed under the MIT license, see the file LICENSE for details.
- *
- * OV7670 driver.
- *
- */
+
  #include <stdint.h>
  #include <stdlib.h>
  #include <string.h>
@@ -389,45 +382,7 @@ const ov7670_special_effect_cfg_t OV7670_SPECIAL_EFFECT_DISABLED =    {0x08, 0x8
 const ov7670_gamma_curve_slope_cfg_t OV7670_GAMMA_CURVE_SLOPE_DEFAULT   = {0x24, 0x04, 0x07, 0x10, 0x28, 0x36, 0x44, 0x52, 0x60, 0x6c, 0x78, 0x8c, 0x9e, 0xbb, 0xd2, 0xe5};
 const ov7670_gamma_curve_slope_cfg_t OV7670_GAMMA_CURVE_SLOPE1          = {0x20, 0x10, 0x1e, 0x35, 0x5a, 0x69, 0x76, 0x80, 0x88, 0x8f, 0x96, 0xa3, 0xaf, 0xc4, 0xd7, 0xe8};
 
-/*
-// Banding filter initialization structure data
-const ov7670_filter_cfg_t OV7670_FILTER_DISABLED = {0x00, 0x98, 0x7f, 0x02, 0x03, 0x02};
-const ov7670_filter_cfg_t OV7670_FILTER_30FPS_60HZ = {0x20, 0x98, 0x7f, 0x02, 0x03, 0x02};
-const ov7670_filter_cfg_t OV7670_FILTER_15FPS_60HZ = {0x20, 0x4c, 0x3f, 0x05, 0x07, 0x02};
-const ov7670_filter_cfg_t OV7670_FILTER_25FPS_50HZ = {0x20, 0x98, 0x7f, 0x03, 0x03, 0x0a};
-const ov7670_filter_cfg_t OV7670_FILTER_14FPS_50HZ = {0x20, 0x4c, 0x3f, 0x06, 0x07, 0x0a};
-const ov7670_filter_cfg_t OV7670_FILTER_30FPS_60HZ_AUTO_LIGHT_FREQ_DETECT = {0x20, 0x98, 0x7f, 0x02, 0x03, 0x12};
-const ov7670_filter_cfg_t OV7670_FILTER_15FPS_60HZ_AUTO_LIGHT_FREQ_DETECT = {0x20, 0x4c, 0x3f, 0x05, 0x07, 0x12};
-const ov7670_filter_cfg_t OV7670_FILTER_25FPS_50HZ_AUTO_LIGHT_FREQ_DETECT = {0x20, 0x98, 0x7f, 0x03, 0x03, 0x1a};
-const ov7670_filter_cfg_t OV7670_FILTER_14FPS_50HZ_AUTO_LIGHT_FREQ_DETECT = {0x20, 0x4c, 0x3f, 0x06, 0x07, 0x1a};
 
-*/
-
-/*
-typedef struct ov7670_advanced_config
-{
-  ov7670_filter_cfg_t *filter;
-  ov7670_night_mode_cfg_t *night_mode;
-  ov7670_white_balance_cfg_t *white_balance;
-  ov7670_light_mode_cfg_t *light_mode;
-  ov7670_color_saturation_cfg_t *color_saturation;
-  ov7670_special_effect_cfg_t *special_effect;
-  ov7670_gamma_curve_slope_cfg_t *gamma_curve_slope;
-} ov7670_advanced_config_t;
-
-#define OV7670_ADVANCED_CONFIGURATION                                           \
-{                                                                               \
-  .filter = (ov7670_filter_cfg_t*)&OV7670_FILTER_DISABLED,                      \
-  .night_mode = (ov7670_night_mode_cfg_t*)&OV7670_NIGHT_MODE_DISABLED,          \
-  .white_balance = (ov7670_white_balance_cfg_t*)&OV7670_WHITE_BALANCE_SIMPLE,   \
-  .light_mode = (ov7670_light_mode_cfg_t*)&OV7670_LIGHT_MODE_HOME,          \
-  .color_saturation = (ov7670_color_saturation_cfg_t*)&OV7670_COLOR_SATURATION_2PLUS, \
-  .special_effect = (ov7670_special_effect_cfg_t*)&OV7670_SPECIAL_EFFECT_NORMAL, \
-  .gamma_curve_slope = (ov7670_gamma_curve_slope_cfg_t*)&OV7670_GAMMA_CURVE_SLOPE1, \
-}
-
-static const ov7670_advanced_config_t ov7670_advanced_config = OV7670_ADVANCED_CONFIGURATION;
-*/
 
 static inline void I2CSet(uint8_t device, uint8_t reg, uint8_t mask, uint8_t value) {
     // Perform a Read-Modify-Write
